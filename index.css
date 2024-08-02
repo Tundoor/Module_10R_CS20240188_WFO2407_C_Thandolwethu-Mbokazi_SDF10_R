@@ -1,4 +1,42 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: #d6a4f7;
 }
+
+.container {                               /* Center everything */
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 50px auto;
+}
+
+input {
+    color: #0a0a0b;                              /*Styles For textbox */
+    background-color: #e7e0f4;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+button {
+    color: #FDFDFD;                               /*Styles for button */
+    background-color: #9900ff;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+img {
+    width: 250px;                                     /*styles for image */
+    margin: 50px auto;
+}
+
