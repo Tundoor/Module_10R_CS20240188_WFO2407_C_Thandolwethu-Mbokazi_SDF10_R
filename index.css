@@ -13,8 +13,7 @@ html, body {
     margin: 30px auto;
 }
 
-input {
-    color: #4f0084;                              /*Styles For textbox */
+input {                              /*Styles For textbox */
     background-color: #e7e0f4;
     border: none;
     border-radius: 10px;
@@ -24,7 +23,18 @@ input {
     text-align: center;
     font-family: 'Arial Narrow Bold', sans-serif;
     font-weight: 900;
+   
 }
+
+:focus {
+    outline: 3px solid #74219e;
+    color: #4f0084;
+
+}
+
+::placeholder{
+    color: #4f008456;
+}                                    /*Styles for placeholder */
 
 button {
     color: #edd5fd;                               /*Styles for button */
