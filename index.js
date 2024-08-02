@@ -20,15 +20,22 @@ addButtonEl.addEventListener("click", function() {
     
     push(shoppingListInDB, inputValue)
 
-    clearInputFieldEl()//Make input clear
+    clearInputFieldEl()                                     //Make input clear
 
 })
 
 onValue(shoppingListInDB, function(snapshot){
-    let itemsArray = Object.values(snapshot.val())
-         clearShoppingListEl()                 //added so that the list didnt repeat items
-    for (let i = 0; i < itemsArray.length; i++){   //created a for loop 
-        addItemToShoppingListEl(itemsArray[i]) 
+    let itemsArray = Object.entries(snapshot.val())
+
+         clearShoppingListEl()                              //added so that the list didn't repeat items
+    
+         for (let i = 0; i < itemsArray.length; i++){            //created a for loop 
+         let currentItem = itemsArray[i]
+
+         let currentItemID = currentItem[0]                   
+         let currentItemValue = currentItem[1]
+       
+         addItemToShoppingListEl(currentItem) 
     }
 
 })
@@ -39,11 +46,16 @@ function clearShoppingListEl(){
 
 
 
-function clearInputFieldEl(){
+function clearInputFieldEl(){                     //added so that text input clears
     inputFieldEl.value = ""  
 }
 
-function addItemToShoppingListEl(itemValue) {
-     shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+function addItemToShoppingListEl(item) {
+        let itemID = item[0]                         //replaced with create item.
+        let itemValue = item[1]
+        let newEl = document.createElement("li")
+        newEl.textContent = itemValue
+        shoppingListEl.append(newEl)
 }
+
 
