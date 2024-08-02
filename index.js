@@ -25,20 +25,24 @@ addButtonEl.addEventListener("click", function() {
 })
 
 onValue(shoppingListInDB, function(snapshot){
-     let itemsArray = Object.entries(snapshot.val())
+   
+    if (snapshot.exists()){
+        let itemsArray = Object.entries(snapshot.val())
 
-         clearShoppingListEl()                              //added so that the list didn't repeat items
-    
-         for (let i = 0; i < itemsArray.length; i++){            //created a for loop 
-         let currentItem = itemsArray[i]
+        clearShoppingListEl()                              //added so that the list didn't repeat items
+   
+        for (let i = 0; i < itemsArray.length; i++){            //created a for loop 
+        let currentItem = itemsArray[i]
+        let currentItemID = currentItem[0]                   
+        let currentItemValue = currentItem[1]
 
-         let currentItemID = currentItem[0]                   
-         let currentItemValue = currentItem[1]
-       
-         addItemToShoppingListEl(currentItem) 
+      
+        addItemToShoppingListEl(currentItem) 
+        }
+    }  else {
+        shoppingListEl.innerHTML = "Add items to cart..."           //Added so that you can clear list
     }
-
-})
+    })
 
 function clearShoppingListEl(){
     shoppingListEl.innerHTML = ""  
