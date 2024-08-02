@@ -2,6 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #d6a4f7;
+    user-select: none;
+    color: #4f0084;
 }
 
 .container {                               /* Center everything */
@@ -12,7 +14,7 @@ html, body {
 }
 
 input {
-    color: #0a0a0b;                              /*Styles For textbox */
+    color: #4f0084;                              /*Styles For textbox */
     background-color: #e7e0f4;
     border: none;
     border-radius: 10px;
@@ -36,6 +38,11 @@ button {
     font-weight: 900;
 }
 
+button:hover {
+    background-color: #7719b6;
+    cursor: pointer;
+}
+
 img {
     width: 250px;                                     /*styles for image */
     margin: 30px auto;
@@ -52,8 +59,14 @@ ul {
     
 }
 
+ul li:hover {
+    background-color: #926dab;
+    cursor: pointer;
+}
+
 ul li {
-    font-size: 1.1rem;
+    font-size: 25px;
+    font-weight: bold;
     align-items: left;
     background-color: #edd5fd;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.9);
@@ -63,3 +76,4 @@ ul li {
     flex-grow: 1;
     border-radius: 20px;
 }
+
