@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"  //linked database
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"  //linked database
 
 const appSettings = {
     databaseURL: "https://game-b4cc1-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -22,8 +22,18 @@ addButtonEl.addEventListener("click", function() {
 
     clearInputFieldEl()//Make input clear
 
-    addItemToShoppingListEl(inputValue)//Makes a new item appear in list
 })
+
+onValue(shoppingListInDB, function(snapshot){
+    let itemsArray = Object.values(snapshot.val())
+    shoppingListEl.innerHTML = ""                 //added so that the list didnt repeat items
+    for (let i = 0; i < itemsArray.length; i++){   //created a for loop 
+        addItemToShoppingListEl(itemsArray[i]) 
+    }
+
+})
+
+
 
 function clearInputFieldEl(){
     inputFieldEl.value = ""  
@@ -32,3 +42,4 @@ function clearInputFieldEl(){
 function addItemToShoppingListEl(itemValue) {
      shoppingListEl.innerHTML += `<li>${itemValue}</li>`
 }
+
