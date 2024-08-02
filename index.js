@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"  //linked database
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"  //linked database
 
 const appSettings = {
     databaseURL: "https://game-b4cc1-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -25,7 +25,7 @@ addButtonEl.addEventListener("click", function() {
 })
 
 onValue(shoppingListInDB, function(snapshot){
-    let itemsArray = Object.entries(snapshot.val())
+     let itemsArray = Object.entries(snapshot.val())
 
          clearShoppingListEl()                              //added so that the list didn't repeat items
     
@@ -55,6 +55,16 @@ function addItemToShoppingListEl(item) {
         let itemValue = item[1]
         let newEl = document.createElement("li")
         newEl.textContent = itemValue
+        
+        //Adding delete function
+        newEl.addEventListener("click", function(){
+            let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+            remove(exactLocationOfItemInDB)
+        })
+        
+        
+        
+        
         shoppingListEl.append(newEl)
 }
 
