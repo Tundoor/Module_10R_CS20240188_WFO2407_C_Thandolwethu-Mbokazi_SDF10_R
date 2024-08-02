@@ -8,36 +8,58 @@ html, body {
     display: flex;
     flex-direction: column;
     max-width: 320px;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 input {
     color: #0a0a0b;                              /*Styles For textbox */
     background-color: #e7e0f4;
-    height: 50px;
     border: none;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0;
+    padding: 10px;
     font-size: 2rem;
     text-align: center;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
 }
 
 button {
-    color: #FDFDFD;                               /*Styles for button */
+    color: #edd5fd;                               /*Styles for button */
     background-color: #9900ff;
-    height: 50px;
     border: none;
     border-radius: 10px;
+    padding: 10px;
+    text-align: center;
     font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
+    font-family:'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
 }
 
 img {
     width: 250px;                                     /*styles for image */
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: monospace;
+    font-weight: 100;
+    
+}
+
+ul li {
+    font-size: 1.1rem;
+    align-items: left;
+    background-color: #edd5fd;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+    flex-flow: wrap;
+    flex-grow: 1;
+    border-radius: 20px;
+}
