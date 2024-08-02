@@ -26,12 +26,16 @@ addButtonEl.addEventListener("click", function() {
 
 onValue(shoppingListInDB, function(snapshot){
     let itemsArray = Object.values(snapshot.val())
-    shoppingListEl.innerHTML = ""                 //added so that the list didnt repeat items
+         clearShoppingListEl()                 //added so that the list didnt repeat items
     for (let i = 0; i < itemsArray.length; i++){   //created a for loop 
         addItemToShoppingListEl(itemsArray[i]) 
     }
 
 })
+
+function clearShoppingListEl(){
+    shoppingListEl.innerHTML = ""  
+}
 
 
 
